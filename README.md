@@ -57,3 +57,24 @@ git diff origin/main..main  # To see, what changes in your local main branch as 
 git log origin/main..main   # To see the log differences between local main and remote main.
 git push origin main    # It'll push local main changes to your remote main or github repo. You can open and see changes.
 ```
+
+# Create Pull Request and merge to main branch
+## Step 1:
+```bash
+git branch -d feature   # To delete feature branch. [Note: make sure you're in main branch]
+git checkout -b feature/PR  # To create another feature branch called feature/PR fo creating PR.
+git brnach
+git add .
+git commit -m "Create Pull Request and merge to main branch"
+git push -u origin feature/PR # push the feature/PR branch to remote github repo.
+```
+## Step 2:
+- Go to your github repo.
+- You'll see a message to create pull request for recently pushed branch.
+- Click on Compare & pull request button.
+- Add title and description.
+- Click on Create pull request button.
+- Now, you'll see Merge pull request button. Click on it.
+- Finally, click on Confirm merge button.
+- Now, your feature/PR branch is merged to main branch.
+- You can delete the feature/PR branch by clicking on Delete branch button.
