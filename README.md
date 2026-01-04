@@ -78,3 +78,15 @@ git push -u origin feature/PR # push the feature/PR branch to remote github repo
 - Finally, click on Confirm merge button.
 - Now, your feature/PR branch is merged to main branch.
 - You can delete the feature/PR branch by clicking on Delete branch button.
+
+## Step 3:
+```bash
+git switch main  # switch to main branch.
+git branch -d feature/PR  # delete the feature/PR branch locally.
+git fetch origin mian # fetch the latest changes from remote main branch.
+git diff main..origin/main  # see the differences between local main and remote main.
+git log main..origin/main   # see the log differences between local main and remote main.
+git merge origin/main  # merge the remote main branch to local main branch.
+git pull origin main  # [Optional/Alternate of fetch & merge] pull the latest changes from remote main branch to local main branch.
+git diff origin/main..main  # To see, what changes in your local main branch as compare to remote's main branch or github repo.
+```
