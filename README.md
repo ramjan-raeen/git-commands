@@ -45,3 +45,15 @@ git remote -v   # list the  remote github repo
 git push -u origin main # to push the changes to your github repo. [Note: flage -u uses first time]
 ```
 
+# Create feature branch and contribute/merge to main branch
+```bash
+git branch  # To list the existing branch.
+git checkout -b feature # To create feature branch and switch to feature branch. [note: asterisk denote your active branch]
+git add .   # add you changes to working directory
+git commit -m "Create feature branch and contribute/merge to main branch"   # commit the changes
+git switch main # switch from feature branch to main branch.
+git merge feature   # merge feature branch to main branch. [Note: to merge branch b into a. first switch to a branch and merge it.]
+git diff origin/main..main  # To see, what changes in your local main branch as compare to remote's main branch or github repo.
+git log origin/main..main   # To see the log differences between local main and remote main.
+git push origin main    # It'll push local main changes to your remote main or github repo. You can open and see changes.
+```
