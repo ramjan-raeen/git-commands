@@ -90,3 +90,39 @@ git merge origin/main  # merge the remote main branch to local main branch.
 git pull origin main  # [Optional/Alternate of fetch & merge] pull the latest changes from remote main branch to local main branch.
 git diff origin/main..main  # To see, what changes in your local main branch as compare to remote's main branch or github repo.
 ```
+
+# Fork git reposotory from internet and contribute/merge to main branch of original repo
+## Step 1: Fork git reposotory from internet
+- Login through your github account.
+- Navigate github repo which you want to fork.
+- Click on fork button which will be available on top right corner.
+## Step 2: clone and add feature
+```bash
+git clone git@github.com:raeen-ramjan/git-commands.git  # clone repo, which you just forked. [Note: replace with your forked repo]
+cd git-commands # To inside folder
+git remote -v # To see alias for remote github which you just forked.
+git log --oneline # To logs of commits.
+git remote add upstream git@github.com:ramjan-raeen/git-commands.git  # To add alias for original repo. [Note: replace with your original repo]
+git remote -v
+git checkout -b feature/Fork  # To create feature branch called feature/Fork.
+git status
+git add .
+git commit -m "Fork git reposotory from internet and contribute/merge to main branch of original repo"
+git push -u origin feature/Fork # Raise Pull Request.
+```
+## Step 3: Pull Request and merge to main branch
+- Go to your github repo.
+- You'll see a message to create pull request for recently pushed branch.
+- Code reviewer review your code and approved it.
+- Click on Compare & pull request button.
+- Add title and description.
+- Click on Create pull request button.
+- Now, you'll see Merge pull request button. Click on it.
+- Finally, click on Confirm merge button.
+- Now, your feature/PR branch is merged to main branch.
+- You can delete the feature/PR branch by clicking on Delete branch button.
+
+
+
+
+
