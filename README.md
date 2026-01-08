@@ -91,6 +91,26 @@ git pull origin main  # [Optional/Alternate of fetch & merge] pull the latest ch
 git diff origin/main..main  # To see, what changes in your local main branch as compare to remote's main branch or github repo.
 ```
 
+# Revert vs Reset
+- **Revert**: It undoes a specific commit by creating a new commit that reverses the changes made in the original commit. It is a safe way to undo changes because it preserves the commit history.
+- **Reset**: It moves the current branch pointer to a specific commit, effectively discarding any commits that came after it. It can be used to undo changes, but it can also rewrite history, which can be dangerous if the commits have already been pushed to a shared repository.
+
+Example:
+you have three commits: A -> B -> C
+- If you want to undo commit B using revert, you would create a new commit D that reverses the changes made in commit B. The commit history would look like this: A -> B -> C -> D
+- If you want to undo commit B using reset, you would move the branch pointer back to commit A, effectively discarding commits B and C. The commit history would look like this: A
+
+## Git Revert vs Reset commands
+```bash
+git revert <commit-hash>  # To revert a specific commit. The purpose of revert is to undo changes without rewriting history.
+
+git reset --soft <commit-hash>  # To reset to a specific commit but keep changes in staging area. The purpose of --soft is the edit the last commit message.
+
+git reset --mixed <commit-hash>  # To reset to a specific commit but keep changes in working directory. This is the default option. The purpose of --mixed is to unstage files and re-edit the files in working directory.
+
+git reset --hard <commit-hash>  # To reset to a specific commit and discard all changes after that commit. The purpose of --hard is to discard all changes in working directory and staging area.
+```
+
 # Fork git repository from internet and contribute/merge to main branch of original repo
 ## Step 1: Fork git repository from internet
 - Login through your github account.
