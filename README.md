@@ -177,10 +177,44 @@ git cherry-pick <commit-hash (E)>
 
 - Hotfix from another branch
 
+<<<<<<< HEAD
 # Rebse vs Merge
 **Rebase**: Move your branch to a new base commit by replaying its commits on top of another branch.
 - Linear history
 - Cleaner project history
+=======
+## Before Rebase:
+```bash
+# main:     A---B---E 
+# feature:        C---D
+
+git switch feature
+git rebase main
+```
+## After Rebase:
+```bash 
+# main:    A---B---E
+# feature:        C'---D'
+```
+## After Rebase + Merge = Fast-Forward
+```bash
+git switch main
+git merge feature
+```
+```bash
+# main:    A---B---E---C'---D'
+```
+
+**Merge**: Merge is a way to integrate changes from one branch into another by creating a new commit that combines the changes from both branches.
+- Non-linear history
+- Preserves complete history    
+- Creates a merge commit
+
+```bash
+git switch main
+git merge feature
+```
+>>>>>>> d7e05ca (rebase vs merge)
 
 # Fork git repository from internet and contribute/merge to main branch of original repo
 ## Step 1: Fork git repository from internet
