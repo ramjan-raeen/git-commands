@@ -111,6 +111,73 @@ git reset --mixed <commit-hash>  # To reset to a specific commit but keep change
 git reset --hard <commit-hash>  # To reset to a specific commit and discard all changes after that commit. The purpose of --hard is to discard all changes in working directory and staging area.
 ```
 
+#  Fast-forward vs Cherry-pick
+**Fast-forward**: A fast-forward happens when Git can move a branch pointer forward without creating a merge commit.
+- No new commit is created
+- History stays straight (linear)
+
+## When is fast-forward possible?
+
+**Only when:**
+
+- main has no new commits
+
+- feature is ahead of main
+
+- main is an ancestor of feature
+
+**Before Fast-Forward**
+
+```bash 
+# A --- B --- C   (main)
+#             |
+#             D --- E   (feature)
+```
+
+**After Fast-Forward**
+```bash
+# A --- B --- C --- D --- E   (main)
+```
+```bash
+git switch main
+git merge feature # git will automatically check fast-forward condition.
+git merge --ff-only feature # you said, fast-forwad
+
+```
+
+# Cherry-pick
+- Copies commit
+- Creates a new commit ID
+- History is not linear
+“Pick one specific commit from another branch and apply it here.”
+
+**Cherry-Before cherry-pick**
+
+```bash
+# A --- B --- C   (main)
+#             |
+#             D --- E   (feature)
+```
+
+ **Cherry-Before cherry-pick**
+```bash
+# A --- B --- C --- E'  (main)
+#             |
+#             D --- E   (feature)
+```
+
+```bash
+git cherry-pick <commit-hash (E)>
+```
+## Use cherry-pick when:
+
+- You need one fix, not full feature
+
+- Backporting a bug fix
+
+- Hotfix from another branch
+
+
 # Fork git repository from internet and contribute/merge to main branch of original repo
 ## Step 1: Fork git repository from internet
 - Login through your github account.
